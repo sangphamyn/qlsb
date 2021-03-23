@@ -1,0 +1,116 @@
+	//Login
+.form {
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 5vh;
+    padding: 2rem;
+    background: rgba(19, 35, 47, 0.9);
+}
+.tab-group {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+.tab {
+    width: 50%;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    background: rgba(160, 179, 176, 0.25);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.tab>a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #a0b3b0;
+    font-size: 1.3rem;
+    transition: .5s ease;
+}
+.tab>a:hover {
+    background: #179b77;
+    color: #fff;
+}
+.active a {
+    background: #1ab188;
+    color: #fff;
+}
+h1 {
+    text-align: center;
+    color: #fff;
+    font-weight: 300;
+}
+.field-wrap {
+    max-width: 100%;
+    position: relative;
+}
+.content {
+    display: none;
+}
+.show {
+    display: block;
+}
+.top-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+label {
+    position: absolute;
+    color: #a0b3b0;
+    pointer-events: none;
+    left: 1rem;
+    top: 0.4rem;
+    font-size: 1.3rem;
+    transition: .5s;
+}
+input {
+    display: block;
+    background: none;
+    height: 3rem;
+    width: 100%;
+    border: 1px solid #a0b3b0;
+    border-radius: 0;
+    padding: 5px 10px;
+    margin-bottom: 2rem !important;
+    box-sizing: border-box;
+}
+input:focus {
+    outline: none;
+    border-color: #1ab188;
+}
+button {
+    width: 100%;
+    height: auto;
+    text-transform: uppercase;
+    background: #1ab188;
+    color: #fff;
+    font-size: 2.7rem;
+    padding: 0.5rem;
+    font-weight: 300;
+    border: none;
+    outline: none;
+}
+p>a {
+    float: right;
+    color: #1ab188;
+    margin: 1rem 0;
+}
+span {
+    color: #1ab188;
+    font-size: 1.5rem;
+    transition: .5s;
+}
+ul li {
+    list-style-type: none;
+}
+button {
+    cursor: pointer;
+}
