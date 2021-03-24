@@ -27,9 +27,6 @@
 	          <a class="nav-link px-3" href="?controller=match&task=dadat">Đã đặt</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link px-3" href="?controller=match&task=lichsan">Lịch sân</a>
-	        </li>
-	        <li class="nav-item">
 	          <a class="nav-link px-3" href="?controller=match&task=allClub">Các đội</a>
 	        </li>
 	        <?php if (isset($_SESSION['fullname'])){
@@ -61,6 +58,7 @@
 				          </a>
 				          <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
 				          	<li><a class='dropdown-item' href='?controller=match&task=yourclub'>Đội của bạn</a></li>
+				          	<li><a class='dropdown-item' href='Models/xuly.php'>Đặt lại</a></li>
 				            <li><a class='dropdown-item' href='Models/logout.php'>Đăng xuất</a></li>
 				          </ul>
 				        </li>";

@@ -236,4 +236,22 @@ class MatchModel extends Model{
 
         header('Location: http://127.0.0.1/qlsb/index.php?controller=match&task=dadat');
     }
+    public function clubMember(){
+        $club_id = $_REQUEST['id'];
+        $rs = $this->con->query("SELECT * FROM quanly_club WHERE club_id = $club_id");
+        $rs1 = $this->con->query("SELECT * FROM clubs WHERE club_id = $club_id");
+        $row1 = $rs1->fetch_assoc();
+        $arr = [];
+        $i = 0;
+        while($row = $rs->fetch_assoc()){
+            $user_id = $row['user_id'];
+            $rs2 = $this->con->query("SELECT * FROM users WHERE user_id = $user_id");
+            $row2 = $rs2->fetch_assoc();
+            $row['club_id'] = $row1['club_name'];
+            $row['user_name'] = $row2['fullname'];
+            $arr[] = $row;
+            $i = $i + 1;
+        }
+        return $arr;
+    }
 }

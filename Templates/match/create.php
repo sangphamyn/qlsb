@@ -1,6 +1,6 @@
 <?php include "Templates/partials/header.php" ?>
 
-<div class="section-1 container my-4 p-4">
+<div class="section-1 container p-4">
 		<div class="row">
 		  		<?php foreach($lichsan as $row) :?>
 			  		<div class="col-3">

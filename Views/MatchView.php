@@ -21,10 +21,10 @@ class MatchView{
 	public function allClub(array $data){
 		include "Templates/match/allClub.php";
 	}
-	public function lichsan(array $data){
-		include "Templates/match/lichsan.php";
-	}
 	public function yourClub(array $data){
 		include "Templates/match/yourClub.php";
+	}
+	public function clubMember(array $data){
+		include "Templates/match/clubMember.php";
 	}
 }

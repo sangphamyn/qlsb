@@ -18,8 +18,10 @@
 	      <td><?php echo $row['club_name'] ?></td>
 	      <td><?php echo $row['numOfMember'] ?></td>
 	      <td>
-	      	<a type="button" class="btn btn-outline-primary" href="?controller=match&task=joinClub&id=<?php echo $row['club_id'] ?>">Tham gia</a>
-	      	<a type="button" class="btn btn-outline-success">Chi tiết</a>
+	      	<?php if (isset($_SESSION['fullname'])){
+	      		echo "<a type='button' class='btn btn-outline-primary' href='?controller=match&task=joinClub&id=".$row['club_id'].">Tham gia</a>";}
+	      	?>
+	      	<a type="button" class="btn btn-outline-success" href="?controller=match&task=clubMember&id=<?php echo $row['club_id']?>">Chi tiết</a>
 	      </td>
 	    </tr>
 	    <?php endforeach; ?>

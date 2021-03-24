@@ -52,11 +52,6 @@ class MatchController{
         $data = $this->model->allClub();
         $this->view->allClub($data);
     }
-    public function lichsan()
-    {
-        $data = $this->model->lichsan();
-        $this->view->lichsan($data);
-    }
     public function yourClub()
     {
         $data = $this->model->yourClub();
@@ -76,5 +71,9 @@ class MatchController{
     }
     public function chonSan(){
         $this->model->chonSan();
+    }
+    public function clubMember(){
+        $data = $this->model->clubMember();
+        $this->view->clubMember($data);
     }
 }
