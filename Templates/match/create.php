@@ -31,7 +31,7 @@
 		  		<?php endforeach; ?>
 		  	</div>
 		<h3 class="text-center">Tạo trận</h3>
-		<form method="POST" action="Models/xuly.php">
+		<form method="POST" action="Models/UserModel.php">
 		  	<div class="mb-3">
 		  		<label for="exampleInputEmail1" class="form-label">Chọn đội của bạn</label>
 			    <select class="form-select w-50" name="club_name" size="1" aria-label="size 3 select example">

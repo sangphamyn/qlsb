@@ -16,7 +16,8 @@
 					</div>
 					<div class="item__create col-4 d-flex flex-column">
 						<h5></h5>
-						  <div class="btn-group" role="group">
+					  	<?php if( isset($_SESSION['fullname']) ): ?>
+				      		<div class="btn-group" role="group">
 						    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 						      Chọn đội để ghép
 						    </button>
@@ -26,6 +27,7 @@
 						      	<?php endforeach; ?>
 						    </ul>
 						  </div>
+				      	<?php endif; ?>
 					</div>
 				</div>
 			<?php endforeach; ?>

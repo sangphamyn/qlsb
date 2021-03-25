@@ -1,7 +1,7 @@
 <?php include "Templates/partials/header.php" ?>
 
 <div class="container mt-4">
-	<h3 class="text-center"><?php echo $data[0]['club_id'] ?></h3>
+	<h3 class="text-center"><?php echo $data[0]['club_name'] ?></h3>
 	<table class="table">
 	  <thead>
 	    <tr>

@@ -58,7 +58,7 @@
 				          </a>
 				          <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
 				          	<li><a class='dropdown-item' href='?controller=match&task=yourclub'>Đội của bạn</a></li>
-				          	<li><a class='dropdown-item' href='Models/xuly.php'>Đặt lại</a></li>
+				          	<li><a class='dropdown-item' href='Models/resetDb.php'>Đặt lại</a></li>
 				            <li><a class='dropdown-item' href='Models/logout.php'>Đăng xuất</a></li>
 				          </ul>
 				        </li>";

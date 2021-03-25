@@ -242,14 +242,16 @@ class MatchModel extends Model{
         $rs1 = $this->con->query("SELECT * FROM clubs WHERE club_id = $club_id");
         $row1 = $rs1->fetch_assoc();
         $arr = [];
+        $arr[0]['club_name'] = $row1['club_name'];
+        $arr[0]['user_name'] = 'Không có thành viên nào';
         $i = 0;
         while($row = $rs->fetch_assoc()){
             $user_id = $row['user_id'];
             $rs2 = $this->con->query("SELECT * FROM users WHERE user_id = $user_id");
             $row2 = $rs2->fetch_assoc();
-            $row['club_id'] = $row1['club_name'];
+            $row['club_name'] = $row1['club_name'];
             $row['user_name'] = $row2['fullname'];
-            $arr[] = $row;
+            $arr[$i] = $row;
             $i = $i + 1;
         }
         return $arr;
