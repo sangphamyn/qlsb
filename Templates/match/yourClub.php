@@ -19,7 +19,7 @@
 	      <td><?php echo $row['numOfMember'] ?></td>
 	      <td>
 	      	<a href="?controller=match&task=exitClub&id=<?php echo $row['club_id'] ?>" type="button" class="btn btn-outline-primary">Thoát</a>
-	      	<a type="button" class="btn btn-outline-success">Chi tiết</a>
+	      	<a type="button" class="btn btn-outline-success" href="?controller=match&task=clubMember&id=<?php echo $row['club_id']?>">Chi tiết</a>
 	      </td>
 	    </tr>
 	    <?php endforeach; ?>

@@ -1,9 +1,11 @@
 <?php include "Templates/partials/header.php" ?>
 
 <div class="section-1 container p-4">
-		<div class="row">
+		<div class="row d-flex justify-content-between">
+			<div class="row col-5">
+				<h3 class="text-center">Lịch sân</h3>
 		  		<?php foreach($lichsan as $row) :?>
-			  		<div class="col-3">
+			  		<div class="col-6">
 			  		<label for="exampleInputEmail1" class="form-label">Sân <?php echo $row['pitch_id'] ?></label>
 				  	<select class="form-select" name="timeOption_<?php echo $row['pitch_id'] ?>" size="4" multiple aria-label="multiple select example">
 					  <?php if($row['time_1'] == 0){
@@ -29,28 +31,33 @@
 					</select>
 			  		</div>
 		  		<?php endforeach; ?>
-		  	</div>
-		<h3 class="text-center">Tạo trận</h3>
-		<form method="POST" action="Models/UserModel.php">
-		  	<div class="mb-3">
-		  		<label for="exampleInputEmail1" class="form-label">Chọn đội của bạn</label>
-			    <select class="form-select w-50" name="club_name" size="1" aria-label="size 3 select example">
-			    	<?php foreach($club as $row) :?>
-				  		<option value="<?php echo $row['club_id'] ?>"><?php echo $row['club_name'] ?></option>
-				  	<?php endforeach; ?>
-				</select>
-		  	</div>
-		  	<label for="exampleInputEmail1" class="form-label">Chọn các khung giờ có thể đá</label>
-		  	<select class="form-select w-25" name="time" size="4" required>
-					<?php foreach($data as $row) :?>
-			  <?php if($row['pitch_1'] == 0 || $row['pitch_2'] == 0 || $row['pitch_3'] == 0 || $row['pitch_4'] == 0){
-					  	echo "<option value=".$row['time_id'].">".$row['time_name']."</option>";
-					  } else{
-					  	echo "<option value=".$row['time_id']." class='text-danger' disabled>".$row['time_name']."</option>";
-					  } ?>
-					  <?php endforeach; ?>
-			</select>
-			
-		  <button type="submit" name="btn-create" class="btn btn-primary m-auto d-block px-5">Tạo</button>
-		</form>
+			</div>
+			<div class="col-6">
+				<h3 class="text-center">Tạo trận</h3>
+				<form method="POST" action="Models/UserModel.php">
+				  	<div class="mb-3">
+				  		<label for="exampleInputEmail1" class="form-label">Chọn đội của bạn</label>
+					    <select class="form-select w-50" name="club_name" size="1" aria-label="size 3 select example">
+					    	<?php foreach($club as $row) :?>
+						  		<option value="<?php echo $row['club_id'] ?>"><?php echo $row['club_name'] ?></option>
+						  	<?php endforeach; ?>
+						</select>
+				  	</div>
+				  	<label for="exampleInputEmail1" class="form-label">Chọn các khung giờ có thể đá</label>
+				  	<select class="form-select w-50" name="time" size="4" required>
+							<?php foreach($data as $row) :?>
+					  <?php if($row['pitch_1'] == 0 || $row['pitch_2'] == 0 || $row['pitch_3'] == 0 || $row['pitch_4'] == 0){
+							  	echo "<option value=".$row['time_id'].">".$row['time_name']."</option>";
+							  } else{
+							  	echo "<option value=".$row['time_id']." class='text-danger' disabled>".$row['time_name']."</option>";
+							  } ?>
+							  <?php endforeach; ?>
+					</select>
+					<label for="exampleInputEmail1" class="form-label">Thông tin</label>
+			    	<textarea type="text" class="form-control" name="comment"></textarea>
+
+				  <button type="submit" name="btn-create" class="btn btn-primary m-auto d-block px-5 mt-3">Tạo</button>
+				</form>
+			</div>
+		</div>
 	</div>

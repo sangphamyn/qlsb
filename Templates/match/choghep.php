@@ -6,15 +6,18 @@
 
 			<?php foreach($data as $row) :?>
 				<div class="item w-75 m-auto mb-3 p-1 row border border-dark">
-					<div class="item__info col-4 d-flex flex-column">
+					<div class="item__info col-3 d-flex flex-column">
 						<h5><?php echo $row['club_id_1'] ?></h5>
 						<p><?php echo $row['time_name'] ?></p>
 					</div>
-					<div class="item__create col-4 d-flex flex-column">
+					<div class="item__create col-3 d-flex flex-column">
 						<h5><?php echo $row['fullname'] ?></h5>
 						<p><?php echo $row['phone'] ?></p>
 					</div>
-					<div class="item__create col-4 d-flex flex-column">
+					<div class="item__create col-3 d-flex flex-column">
+						<p><?php echo $row['comment'] ?></p>
+					</div>
+					<div class="item__create col-3 d-flex flex-column">
 						<h5></h5>
 					  	<?php if( isset($_SESSION['fullname']) ): ?>
 				      		<div class="btn-group" role="group">
@@ -23,7 +26,9 @@
 						    </button>
 						    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 						    	<?php foreach($row['club_ghep'] as $row1) :?>
-						      		<li><a class="dropdown-item" href="?controller=match&task=ghep&match_id=<?php echo $row['match_id'] ?>&club_ghep_id=<?php echo $row1['id'] ?>"><?php echo $row1['name'] ?></a></li>
+						    		<?php if($row1['id'] != 0): ?>
+						      			<li><a class="dropdown-item" href="?controller=match&task=ghep&match_id=<?php echo $row['match_id'] ?>&club_ghep_id=<?php echo $row1['id'] ?>"><?php echo $row1['name'] ?></a></li>
+						      		<?php endif; ?>
 						      	<?php endforeach; ?>
 						    </ul>
 						  </div>

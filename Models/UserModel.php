@@ -39,10 +39,11 @@ session_start();
         $timeId = $_POST["time"];
         $user_id = $_SESSION['user_id'];
         $fullname = $_SESSION['fullname'];
+        $comment = $_POST['comment'];
         $sql1 = "SELECT phone FROM users WHERE user_id = $user_id";
         $rs = mysqli_query($conn,$sql1)->fetch_assoc();
         $phone = $rs['phone'];
-        $sql = "INSERT INTO matchs(club_id_1, time_id, fullname, phone) VALUES ($clubName,$timeId,'$fullname','$phone')";
+        $sql = "INSERT INTO matchs(club_id_1, time_id, fullname, phone, comment) VALUES ($clubName,$timeId,'$fullname','$phone','$comment')";
         mysqli_query($conn,$sql);
         header('Location: http://127.0.0.1/qlsb/index.php?controller=match&task=choghep');
     }

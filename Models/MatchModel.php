@@ -80,8 +80,6 @@ class MatchModel extends Model{
             while($row = $rs->fetch_assoc()){
                 $arr[] = $row;
             }
-            //var_dump($arr[1]['club_id_2']);
-            //var_dump(count($arr));
             $i = 0;
             while($i < count($arr)){
                 $name = $arr[$i]['club_id_1'];
@@ -99,12 +97,12 @@ class MatchModel extends Model{
                     $arr1[] = $row1;
                 }
                 $j = 0;
+                $arr[$i]['club_ghep'][0]['id'] = 0;
+                $arr[$i]['club_ghep'][0]['name'] = 'Bạn chưa tham gia đội nào';
                 while ($j < count($arr1)) {
                     $club_id_ghep = $arr1[$j]['club_id'];
                     $rs4 = $this->con->query("SELECT * FROM clubs WHERE club_id = $club_id_ghep");
                     $row2 = $rs4->fetch_assoc();
-                    //$arr[$i]['club_id_ghep'][$j] = $club_id_ghep;
-                    //$arr[$i]['club_name_ghep'][$j] = $row2['club_name'];
                     $arr[$i]['club_ghep'][$j]['id'] = $club_id_ghep;
                     $arr[$i]['club_ghep'][$j]['name'] = $row2['club_name'];
 
