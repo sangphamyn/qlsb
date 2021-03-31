@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(isset($_SESSION['fullname'])){
+
+}
+else{
+    $_SESSION['isAdmin'] = 0;
+}
 ?>
 <?php
 require_once "Models/Model.php";
@@ -18,10 +24,31 @@ class MatchModel extends Model{
         $i = 0;
         while($i < count($arr)){
         	$name1 = $arr[$i]['club_id_1'];
+            $name2 = $arr[$i]['club_id_2'];
+
+            $arr[$i]['club_highlight_1'] = 0;
+            $arr[$i]['club_highlight_2'] = 0;
+
+            if(isset($_SESSION['user_id'])){
+                $user_id = $_SESSION['user_id'];
+                $rs4 = $this->con->query("SELECT * FROM quanly_club WHERE user_id = $user_id AND club_id = $name1");
+                $a4 = mysqli_num_rows($rs4);
+                if($a4 == 1){
+                    $arr[$i]['club_highlight_1'] = 1;
+                }
+
+                $rs5 = $this->con->query("SELECT * FROM quanly_club WHERE user_id = $user_id AND club_id = $name2");
+                $a5 = mysqli_num_rows($rs5);
+                if($a5 == 1){
+                    $arr[$i]['club_highlight_2'] = 1;
+                }
+            }
+
+
         	$rs1 = $this->con->query("SELECT club_name FROM clubs WHERE club_id = $name1");
         	$a1 = $rs1->fetch_assoc();
         	$arr[$i]['club_id_1'] = $a1['club_name'];
-        	$name2 = $arr[$i]['club_id_2'];
+        	
         	$rs2 = $this->con->query("SELECT club_name FROM clubs WHERE club_id = $name2");
         	$a2 = $rs2->fetch_assoc();
         	$arr[$i]['club_id_2'] = $a2['club_name'];
@@ -44,7 +71,8 @@ class MatchModel extends Model{
         }
         return $arr;
     }
-    public function cacDoiDaDatXacNhan(){
+    public function cacDoiDaDatXacNhan(){        
+        
         $rs = $this->con->query("SELECT * FROM matchs WHERE club_id_2 IS NOT NULL AND pitch_id IS NOT NULL");
         $arr = [];
         while($row = $rs->fetch_assoc()){
@@ -53,10 +81,30 @@ class MatchModel extends Model{
         $i = 0;
         while($i < count($arr)){
             $name1 = $arr[$i]['club_id_1'];
+            $name2 = $arr[$i]['club_id_2'];
+            $arr[$i]['club_highlight_1'] = 0;
+            $arr[$i]['club_highlight_2'] = 0;
+
+            if(isset($_SESSION['user_id'])){
+                $user_id = $_SESSION['user_id'];
+                $rs4 = $this->con->query("SELECT * FROM quanly_club WHERE user_id = $user_id AND club_id = $name1");
+                $a4 = mysqli_num_rows($rs4);
+                if($a4 == 1){
+                    $arr[$i]['club_highlight_1'] = 1;
+                }
+
+                $rs5 = $this->con->query("SELECT * FROM quanly_club WHERE user_id = $user_id AND club_id = $name2");
+                $a5 = mysqli_num_rows($rs5);
+                if($a5 == 1){
+                    $arr[$i]['club_highlight_2'] = 1;
+                }
+            }
+            
+
             $rs1 = $this->con->query("SELECT club_name FROM clubs WHERE club_id = $name1");
             $a1 = $rs1->fetch_assoc();
             $arr[$i]['club_id_1'] = $a1['club_name'];
-            $name2 = $arr[$i]['club_id_2'];
+
             $rs2 = $this->con->query("SELECT club_name FROM clubs WHERE club_id = $name2");
             $a2 = $rs2->fetch_assoc();
             $arr[$i]['club_id_2'] = $a2['club_name'];
@@ -83,6 +131,16 @@ class MatchModel extends Model{
             $i = 0;
             while($i < count($arr)){
                 $name = $arr[$i]['club_id_1'];
+
+                $arr[$i]['club_highlight'] = 0;
+
+                $user_id = $_SESSION['user_id'];
+                $rs4 = $this->con->query("SELECT * FROM quanly_club WHERE user_id = $user_id AND club_id = $name");
+                $a4 = mysqli_num_rows($rs4);
+                if($a4 == 1){
+                    $arr[$i]['club_highlight'] = 1;
+                }
+
                 $time = $arr[$i]['time_id'];
                 $rs1 = $this->con->query("SELECT club_name FROM clubs WHERE club_id = $name");
                 $rs2 = $this->con->query("SELECT time FROM times WHERE time_id = $time");
@@ -121,6 +179,7 @@ class MatchModel extends Model{
             }
             $i = 0;
             while($i < count($arr)){
+                $arr[$i]['club_highlight'] = 0;
                 $name = $arr[$i]['club_id_1'];
                 $time = $arr[$i]['time_id'];
                 $rs1 = $this->con->query("SELECT club_name FROM clubs WHERE club_id = $name");
@@ -138,13 +197,25 @@ class MatchModel extends Model{
     }
     public function allClub(){
         $rs = $this->con->query("SELECT * FROM clubs");
-
+        $user_id = 0;
+        if(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+        }
         $arr = [];
         while($row = $rs->fetch_assoc()){
             $numOfMember = $row['club_id'];
             $sothanhvien = $this->con->query("SELECT COUNT(club_id) FROM quanly_club WHERE club_id = $numOfMember");
             $a = $sothanhvien->fetch_assoc();
             $row['numOfMember'] = $a['COUNT(club_id)'];
+
+            $club_id = $row['club_id'];
+            $row['club_highlight'] = 0;
+            $rs4 = $this->con->query("SELECT * FROM quanly_club WHERE user_id = $user_id AND club_id = $club_id");
+            $a4 = mysqli_num_rows($rs4);
+            if($a4 == 1){
+                $row['club_highlight'] = 1;
+            }
+
             $arr[] = $row;
         }
         return $arr;

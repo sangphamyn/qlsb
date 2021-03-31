@@ -1,0 +1,272 @@
+* {
+  font-family: 'Andika', sans-serif; }
+
+.header {
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); }
+  .header ul li a span {
+    transition: 0.4s;
+    position: relative; }
+    .header ul li a span::after {
+      content: '';
+      height: 2px;
+      background-color: #82d808;
+      position: absolute;
+      bottom: -3px;
+      left: 50%;
+      right: 50%;
+      transition: 0.4s; }
+  .header ul li a .active {
+    color: #82d808; }
+    .header ul li a .active::after {
+      left: 0;
+      right: 0; }
+  .header ul li a:hover span {
+    color: #82d808;
+    transition: 0.4s; }
+  .header ul li a:hover span::after {
+    left: 0;
+    right: 0;
+    transition: 0.4s; }
+
+.side {
+  transition: .5s;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 100000;
+  width: 340px;
+  height: 100%;
+  transform: translateX(100%); }
+
+.side .mini-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #81818133;
+  border-top: 1px solid #81818133;
+  padding: .5rem 1rem;
+  align-items: center; }
+
+.side .mini-header h3 {
+  margin: 0;
+  font-size: 16px; }
+
+.side .mini-header i {
+  font-size: 50px;
+  cursor: pointer;
+  transition: .3s; }
+
+.side .mini-header i:hover {
+  transform: rotate(180deg);
+  transition: .3s; }
+
+.side-transform {
+  transform: translateX(0) !important; }
+
+.login .login-body, .register .login-body, .recover-pw .login-body {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box; }
+
+.login .login-body .form-row, .register .login-body .form-row, .recover-pw .login-body .form-row {
+  display: flex;
+  flex-direction: column;
+  color: #808080;
+  margin-bottom: 2rem; }
+
+.login .login-body .form-row input, .register .login-body .form-row input, .recover-pw .login-body .form-row input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d5d5d5;
+  height: 40px;
+  padding: 0 1rem; }
+
+.login .login-body .form-row label, .register .login-body .form-row label, .recover-pw .login-body .form-row label {
+  margin-bottom: 1rem; }
+
+.login .login-body .form-row label span, .register .login-body .form-row label span, .recover-pw .login-body .form-row label span {
+  color: red; }
+
+.login .login-body > input, .register .login-body > input, .recover-pw .login-body > input {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background: orange;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer; }
+
+.login .login-body > input:hover, .register .login-body > input:hover, .recover-pw .login-body > input:hover {
+  opacity: .8; }
+
+.login .login-body p, .register .login-body p, .recover-pw .login-body p {
+  margin-top: 2rem;
+  color: #808080; }
+
+.login .login-body p a, .register .login-body p a, .recover-pw .login-body p a {
+  transition: .2s; }
+
+.login .login-body p a:hover, .register .login-body p a:hover, .recover-pw .login-body p a:hover {
+  color: #808080;
+  transition: .2s; }
+
+.mark-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  position: fixed;
+  top: 0;
+  display: none;
+  z-index: 10; }
+
+.show-mark {
+  display: block; }
+
+.home {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-image: url(https://cdn-thethao247.com/upload/thanhtung/2019/10/07/tai-sao-san-da-bong-luon-co-haimau-co-khac-nhau-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.section-1-1 .item {
+  border-radius: 1rem;
+  border-color: rgba(0, 0, 0, 0.5) !important;
+  transition: 0.2s;
+  cursor: pointer; }
+  .section-1-1 .item:hover {
+    box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    transition: 0.2s; }
+
+.highlight {
+  color: #31ff31;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  box-shadow: inset 0 -.45em .85em #2df147;
+  transition: box-shadow 0.25s cubic-bezier(0.32, 0.75, 0.25, 1); }
+  .highlight:hover {
+    box-shadow: inset 0 -1.15em 0 #2df147; }
+
+.r-link {
+  display: var(--rLinkDisplay, inline-flex) !important; }
+
+.r-link[href] {
+  color: var(--rLinkColor) !important;
+  text-decoration: var(--rLinkTextDecoration, none) !important; }
+
+.text-underlined {
+  --uiTextUnderlinedLineHeight: var(--textUnderlinedLineHeight, 2px);
+  --uiTextUnderlinedLineGap: var(--textUnderlinedLineGap, .5rem);
+  --uiTextUnderlinedPaddingBottom: calc(var(--uiTextUnderlinedLineHeight) + var(--uiTextUnderlinedLineGap));
+  padding-bottom: var(--uiTextUnderlinedPaddingBottom) !important;
+  position: var(--textUnderlinedPosition, relative) !important;
+  z-index: var(--textUnderlinedZindex, 1) !important; }
+  .text-underlined::after {
+    content: "";
+    width: var(--textUnderlinedLineWidht, 100%) !important;
+    height: var(--uiTextUnderlinedLineHeight) !important;
+    background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 30%, rgba(0, 0, 0, 0) 45%)) !important;
+    position: absolute;
+    left: var(--textUnderlinedLineLeft, 0) !important;
+    bottom: var(--textUnderlinedLineBottom, 0) !important;
+    z-index: var(--textUnderlinedLineZindex, -1) !important; }
+
+.link {
+  --textUnderlinedLineHeight: 100%;
+  --textUnderlinedLineGap: 0;
+  --textUnderlinedLineColor: #fed330;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+  .link::after {
+    will-change: width;
+    transition: width .1s ease-out;
+    transform: rotate(-2deg);
+    transform-origin: left bottom; }
+  .link:focus {
+    outline: 2px solid #fed330;
+    outline-offset: .5rem; }
+
+.footer {
+  background: #f6f6f8;
+  padding: 0 10rem !important;
+  font-size: 16px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2); }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5e72e4; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0a50b7; }
+
+.swiper-container {
+  width: 100%;
+  height: 400px; }
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+.section-3 {
+  width: 100%;
+  margin: 2rem 0;
+  color: rgba(0, 0, 0, 0.6); }
+  .section-3 .wrap {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+    .section-3 .wrap .col {
+      height: fit-content;
+      width: 22.5%; }
+      .section-3 .wrap .col i {
+        width: 60px;
+        min-height: 80px;
+        font-size: 2.5rem;
+        display: block;
+        float: left; }
+      .section-3 .wrap .col h5 {
+        color: black;
+        font-weight: 600;
+        margin: 0; }
+      .section-3 .wrap .col h6 {
+        margin: .8rem 0;
+        font-weight: lighter;
+        line-height: 1.7; }
+
+/*# sourceMappingURL=style.css.map */

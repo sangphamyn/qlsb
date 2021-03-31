@@ -17,3 +17,5 @@
 	  </tbody>
 	</table>
 </div>
+
+<?php include "Templates/partials/footer.php" ?>

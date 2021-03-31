@@ -7,13 +7,20 @@
 			<h5 class="text-center">Chủ sân chưa xác nhận</h5>
 			<?php foreach($data as $row) :?>
 				<div class="item w-100 m-auto mb-3 p-1 row border border-dark">
-					<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
-						<h6><?php echo $row['club_id_1'] ?></h6>
-						<h6></h6>
-					</div>
+					<?php if( $row['club_highlight_1'] == 1 ): ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6 class="r-link link text-underlined"><?php echo $row['club_id_1'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php else: ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6><?php echo $row['club_id_1'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php endif; ?>
 					<div class="item__create col-4 d-flex flex-column justify-content-center align-items-center">
 						<h6><?php echo $row['time_id'] ?></h6>
-
+						<p></p>
 						
 					<?php if ($_SESSION['isAdmin'] == 1){
 						echo "<div class='btn-group' role='group'>
@@ -30,10 +37,18 @@
 						 </div>";}
 					 ?>
 					</div>
-					<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
-						<h6><?php echo $row['club_id_2'] ?></h6>
-						<h6></h6>
-					</div>
+					<?php if( $row['club_highlight_2'] == 1 ): ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6 class="r-link link text-underlined"><?php echo $row['club_id_2'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php endif; ?>
+					<?php if( $row['club_highlight_2'] == 0 ): ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6><?php echo $row['club_id_2'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>
 		</div>
@@ -41,20 +56,36 @@
 			<h5 class="text-center">Chủ sân đã xác nhận</h5>
 			<?php foreach($xacnhan as $row) :?>
 				<div class="item w-100 m-auto mb-3 p-1 row border border-dark">
-					<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
-						<h6><?php echo $row['club_id_1'] ?></h6>
-						<h6></h6>
-					</div>
-					<div class="item__create col-4 d-flex flex-column justify-content-center align-items-center">
-						<h6><?php echo $row['time_id'] ?></h6>
-						<p>Sân: <?php echo $row['pitch_id'] ?></p>
-					</div>
-					<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
-						<h6><?php echo $row['club_id_2'] ?></h6>
-						<h6></h6>
-					</div>
+					<?php if( $row['club_highlight_1'] == 1 ): ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6 class="r-link link text-underlined"><?php echo $row['club_id_1'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php else: ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6><?php echo $row['club_id_1'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php endif; ?>
+						<div class="item__create col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6><?php echo $row['time_id'] ?></h6>
+							<p>Sân: <?php echo $row['pitch_id'] ?></p>
+						</div>
+					<?php if( $row['club_highlight_2'] == 1 ): ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6 class="r-link link text-underlined"><?php echo $row['club_id_2'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php else: ?>
+						<div class="item__info col-4 d-flex flex-column justify-content-center align-items-center">
+							<h6><?php echo $row['club_id_2'] ?></h6>
+							<h6></h6>
+						</div>
+					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>
 		</div>
 	</div>
 </div>
+
+<?php include "Templates/partials/footer.php" ?>

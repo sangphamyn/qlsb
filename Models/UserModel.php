@@ -10,7 +10,7 @@ session_start();
         $password = $_POST["password"];
         $sql = "INSERT INTO users(fullname, phone, password) VALUES ('$fullname','$phone','$password')";
         mysqli_query($conn,$sql);
-        header('Location: http://127.0.0.1/qlsb/index.php?controller=match&task=login');
+        echo "Đăng ký thành công. <a href='javascript: history.go(-1)'>Trở lại</a>";
     }
 
     if (isset($_POST["btnSignin"])) {
@@ -31,7 +31,7 @@ session_start();
         $_SESSION['fullname'] = $row['fullname'];
         $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['isAdmin'] = $row['isAdmin'];
-        header('Location: http://127.0.0.1/qlsb/index.php?controller=match&task=index');
+        header('Location: http://127.0.0.1/qlsb/?controller=match&task=index');
     }
 
     if (isset($_POST["btn-create"])) {
@@ -45,7 +45,7 @@ session_start();
         $phone = $rs['phone'];
         $sql = "INSERT INTO matchs(club_id_1, time_id, fullname, phone, comment) VALUES ($clubName,$timeId,'$fullname','$phone','$comment')";
         mysqli_query($conn,$sql);
-        header('Location: http://127.0.0.1/qlsb/index.php?controller=match&task=choghep');
+        header('Location: http://127.0.0.1/qlsb/?controller=match&task=choghep');
     }
 
     if (isset($_POST["btn-createClub"])) {
@@ -58,6 +58,6 @@ session_start();
         $club_id = $rs['club_id'];
         $sql2 = "INSERT INTO quanly_club(user_id, club_id) VALUES ('$user_id', $club_id)";
         mysqli_query($conn,$sql2);
-        header('Location: http://127.0.0.1/qlsb/index.php?controller=match&task=allClub');
+        header('Location: http://127.0.0.1/qlsb/?controller=match&task=allClub');
     }
 ?>

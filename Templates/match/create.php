@@ -61,3 +61,5 @@
 			</div>
 		</div>
 	</div>
+
+	<?php include "Templates/partials/footer.php" ?>

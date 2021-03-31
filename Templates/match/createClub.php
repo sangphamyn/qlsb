@@ -10,3 +10,5 @@
 	  <button type="submit" name="btn-createClub" class="btn btn-primary">Tạo</button>
 	</form>
 </div>
+
+<?php include "Templates/partials/footer.php" ?>

@@ -19,38 +19,40 @@ class MatchController{
     }
     public function index()
     {
-        $this->view->index();
-    }
-    public function login()
-    {
-        $this->view->login();
+        $home = 1;
+        $this->view->index($home);
     }
     public function create()
     {
+        $taotran = 1;
         $lichsan = $this->model->lichsan();
         $data = $this->model->create();
         $club = $this->model->yourClub();
-        $this->view->create($lichsan, $club, $data);
+        $this->view->create($lichsan, $club, $data, $taotran);
     }
     public function createClub()
     {
-        $this->view->createClub();
+        $taodoi = 1;
+        $this->view->createClub($taodoi);
     }
     public function dadat()
     {
+        $dadat = 1;
         $data = $this->model->cacDoiDaDat();
         $xacnhan = $this->model->cacDoiDaDatXacNhan();
-        $this->view->dadat($data,$xacnhan);
+        $this->view->dadat($data,$xacnhan,$dadat);
     }
     public function choghep()
     {
+        $choghep = 1;
         $data = $this->model->choGhep();
-        $this->view->choghep($data);
+        $this->view->choghep($data,$choghep);
     }
     public function allClub()
     {
+        $allClub = 1;
         $data = $this->model->allClub();
-        $this->view->allClub($data);
+        $this->view->allClub($data, $allClub);
     }
     public function yourClub()
     {
