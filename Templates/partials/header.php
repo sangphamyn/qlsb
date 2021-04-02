@@ -28,45 +28,45 @@
 	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 	        <li class="nav-item">
-	          <a class="nav-link px-3 active" aria-current="page" href="?controller=match&task=index">
+	          <a class="nav-link px-3 active" aria-current="page" href="?task=index">
 	          	
 	          	<span class="<?php if($home == 1): ?>active<?php endif; ?>">Trang chủ</span>
 	          	
 	          </a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link px-3 active" href="?controller=match&task=choghep">
+	          <a class="nav-link px-3 active" href="?task=choghep">
 	          	<span class="<?php if($choghep == 1): ?>active<?php endif; ?>">Chờ ghép</span>
 	          </a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link px-3 active" href="?controller=match&task=dadat">
+	          <a class="nav-link px-3 active" href="?task=dadat">
 	          	<span class="<?php if($dadat == 1): ?>active<?php endif; ?>">Đã đặt</span>
 	          </a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link px-3 active" href="?controller=match&task=allClub">
+	          <a class="nav-link px-3 active" href="?task=allClub">
 	          	<span class="<?php if($allClub == 1): ?>active<?php endif; ?>">Các đội</span>
 	          </a>
 	        </li>
 	        
 	      		<?php if( isset($_SESSION['fullname']) ): ?>
 	      			<li class='nav-item'>
-			          <a class='nav-link px-3 active' href='?controller=match&task=createClub'>
+			          <a class='nav-link px-3 active' href='?task=createClub'>
 			          	<span class="<?php if($taodoi == 1): ?>active<?php endif; ?>">Tạo đội</span>
 			          </a>
 			        </li>
 			        <li class='nav-item'>
-			          <a class='nav-link px-3 active' href='?controller=match&task=create'>
+			          <a class='nav-link px-3 active' href='?task=create'>
 			          	<span class="<?php if($taotran == 1): ?>active<?php endif; ?>">Tạo trận</span>
 			          </a>
 			        </li>
 			    <?php else: ?>
 			    	<li class='nav-item'>
-			          <a class='nav-link px-3 disabled' href='?controller=match&task=createClub'><span>Tạo đội</span></a>
+			          <a class='nav-link px-3 disabled' href='?task=createClub'><span>Tạo đội</span></a>
 			        </li>
 			        <li class='nav-item'>
-			          <a class='nav-link px-3 disabled' href='?controller=match&task=create'><span>Tạo trận</span></a>
+			          <a class='nav-link px-3 disabled' href='?task=create'><span>Tạo trận</span></a>
 			        </li>
 	      		<?php endif; ?>
 
@@ -82,7 +82,7 @@
 				            <span class='badge bg-warning text-dark'>Admin</span>
 				          </a>
 				          <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
-				          	<li><a class='dropdown-item' href='?controller=match&task=yourclub'>Đội của bạn</a></li>
+				          	<li><a class='dropdown-item' href='?task=yourclub'>Đội của bạn</a></li>
 				          	<li><a class='dropdown-item' href='Models/resetDb.php'>Đặt lại</a></li>
 				            <li><a class='dropdown-item' href='Models/logout.php'>Đăng xuất</a></li>
 				          </ul>
@@ -93,7 +93,7 @@
 				            <?php echo $_SESSION['fullname'] ?>
 				          </a>
 				          <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
-				          	<li><a class='dropdown-item' href='?controller=match&task=yourclub'>Đội của bạn</a></li>
+				          	<li><a class='dropdown-item' href='?task=yourclub'>Đội của bạn</a></li>
 				            <li><a class='dropdown-item' href='Models/logout.php'>Đăng xuất</a></li>
 				          </ul>
 				        </li>

@@ -24,12 +24,12 @@
 	      <td>
 	      	<?php if( isset($_SESSION['fullname']) ): ?>
 	      		<?php if($row['club_highlight'] == 1): ?>
-	      			<a href="?controller=match&task=exitClub&id=<?php echo $row['club_id'] ?>" type="button" class="btn btn-outline-danger" style="width: 120px">Thoát</a>
+	      			<a href="?task=exitClub&id=<?php echo $row['club_id'] ?>" type="button" class="btn btn-outline-danger" style="width: 120px">Thoát</a>
 	      		<?php else: ?>
-	      			<a type="button" class="btn btn-outline-primary" href="?controller=match&task=joinClub&id=<?php echo $row['club_id'] ?>" style="width: 120px">Tham gia</a>
+	      			<a type="button" class="btn btn-outline-primary" href="?task=joinClub&id=<?php echo $row['club_id'] ?>" style="width: 120px">Tham gia</a>
 	      		<?php endif; ?>	      	
 	      	<?php endif; ?>
-	      	<a type="button" class="btn btn-outline-success" href="?controller=match&task=clubMember&id=<?php echo $row['club_id']?>" style="width: 120px">Chi tiết</a>
+	      	<a type="button" class="btn btn-outline-success" href="?task=clubMember&id=<?php echo $row['club_id']?>" style="width: 120px">Chi tiết</a>
 	      </td>
 	    </tr>
 	    <?php endforeach; ?>

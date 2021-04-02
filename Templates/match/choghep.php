@@ -32,7 +32,7 @@
 						    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 						    	<?php foreach($row['club_ghep'] as $row1) :?>
 						    		<?php if($row1['id'] != 0): ?>
-						      			<li><a class="dropdown-item" href="?controller=match&task=ghep&match_id=<?php echo $row['match_id'] ?>&club_ghep_id=<?php echo $row1['id'] ?>"><?php echo $row1['name'] ?></a></li>
+						      			<li><a class="dropdown-item" href="?task=ghep&match_id=<?php echo $row['match_id'] ?>&club_ghep_id=<?php echo $row1['id'] ?>"><?php echo $row1['name'] ?></a></li>
 						      		<?php endif; ?>
 						      	<?php endforeach; ?>
 						    </ul>

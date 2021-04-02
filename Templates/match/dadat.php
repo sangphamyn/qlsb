@@ -23,14 +23,14 @@
 						<p></p>
 						
 					<?php if ($_SESSION['isAdmin'] == 1){
-						echo "<div class='btn-group' role='group'>
+						echo "<div class='btn-group dropup' role='group'>
 						    <button id='btnGroupDrop1' type='button' class='btn btn-primary dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
 						      Chọn sân
 						    </button>
 						    <ul class='dropdown-menu' aria-labelledby='btnGroupDrop1'>";
 						      	foreach($row['pitch'] as $row1){
 									if($row1['pitch_status'] == 0){
-										echo "<li><a class='dropdown-item' href='?controller=match&task=chonSan&match_id=".$row['match_id']."&pitch_id=".$row1['pitch_name']."'>Sân ".$row1['pitch_name']."</a></li>";
+										echo "<li><a class='dropdown-item' href='?task=chonSan&match_id=".$row['match_id']."&pitch_id=".$row1['pitch_name']."'>Sân ".$row1['pitch_name']."</a></li>";
 									}
 								}
 						    echo "</ul>
